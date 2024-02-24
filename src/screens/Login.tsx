@@ -8,8 +8,9 @@ import Button from '../components/Button/Button';
 import PasswordInput from '../components/Input/PasswordInput';
 import BottomCard from '../components/Card/BottomCard';
 import FormInput from '../components/Input/FormInput';
+import {NavigationProps} from '../types/navigation';
 
-const Login = ({navigation}: any) => {
+const Login = ({navigation}: NavigationProps) => {
   const modalizeRef = useRef<Modalize>(null);
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');

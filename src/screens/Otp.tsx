@@ -2,21 +2,17 @@ import React, {useRef, useState} from 'react';
 import {View, Text, StyleSheet, Image, ImageBackground} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {Modalize} from 'react-native-modalize';
-import IconButton from '../components/Button/IconButton';
-import TextButton from '../components/Button/TextButton';
+import OTPInputView from '@twotalltotems/react-native-otp-input';
 import Button from '../components/Button/Button';
-import PasswordInput from '../components/Input/PasswordInput';
 import BottomCard from '../components/Card/BottomCard';
-import FormInput from '../components/Input/FormInput';
+import ResendText from '../components/Typography/ResendText';
+import {useTimer} from '../hooks/useTimer';
+import {NavigationProps} from '../types/navigation';
 
-const Login = ({navigation}: any) => {
+const OtpScreen = ({navigation}: NavigationProps) => {
+  const {timer, startTimer, resetTimer} = useTimer({});
   const modalizeRef = useRef<Modalize>(null);
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-
-  // const onOpen = async () => {
-  //   await modalizeRef.current?.open();
-  // };
+  const [sms, setSms] = useState('');
 
   return (
     <GestureHandlerRootView style={{flex: 1}}>
@@ -38,25 +34,30 @@ const Login = ({navigation}: any) => {
         handleStyle={styles.handle}
         modalStyle={styles.modal}>
         <BottomCard contentStyle={styles.form}>
-          <Text
-            style={{
-              color: '#000',
-              fontSize: 32,
-              fontWeight: 'bold',
-              textAlign: 'center',
-            }}>
-            Enter OTP
-          </Text>
+          <Text style={styles.headerText}>Enter OTP</Text>
           <Text style={styles.subTitle}>An 4 digit OTP has been sent to</Text>
           <Text style={styles.phone}>+91998435344</Text>
-          <Button
-            title="Login"
-            style={styles.btn}
-            onPress={() => navigation.navigate('Otp')}
+
+          <OTPInputView
+            pinCount={4}
+            code={sms}
+            keyboardType="number-pad"
+            style={styles.otpInput}
+            autoFocusOnLoad={false}
+            keyboardAppearance="default"
+            codeInputFieldStyle={styles.underlineStyleBase}
+            codeInputHighlightStyle={styles.underlineStyleHighLighted}
+            onCodeChanged={code => setSms(code)}
+            onCodeFilled={code => {
+              console.log(`Code is ${code}, you are good to go!`);
+            }}
           />
+          <Button title="Verify" onPress={() => navigation.navigate('Home')} />
           <View style={styles.footer}>
-            <Text style={styles.footer_inner}>Create a new account ?</Text>
-            <Text style={styles.footer_btn}>Sign Up</Text>
+            <Text style={styles.subTitle} onPress={resetTimer}>
+              Resent OTP
+            </Text>
+            <ResendText startTimer={startTimer} counter={timer} />
           </View>
         </BottomCard>
       </Modalize>
@@ -69,16 +70,16 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  headerText: {
+    color: '#000',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
   header: {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 50,
-  },
-  bottomCard: {
-    flex: 1,
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 50,
-    borderTopRightRadius: 50,
   },
   form: {
     marginTop: 20,
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     lineHeight: 26,
+    fontWeight: '600',
   },
   phone: {
     color: '#000',
@@ -96,39 +98,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 26,
   },
-  forgot: {
-    color: '#4BD4FF',
-    textAlign: 'right',
-    fontWeight: '600',
-    marginRight: 10,
-    marginTop: 10,
-  },
-  btn: {
-    marginTop: 16,
-  },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
     margin: 12,
   },
-  footer_inner: {
-    color: '#8E8E8E',
-    fontSize: 14,
-    fontFamily: 'Poppins-Regular',
-  },
   footer_btn: {
-    color: '#4BD4FF',
+    color: '#8E8E8E',
     marginLeft: 6,
     fontSize: 14,
     fontFamily: 'Poppins-Bold',
-  },
-  less: {
-    textAlign: 'center',
-    color: '#000',
-    fontSize: 14,
-  },
-  google: {
-    marginTop: 12,
+    marginTop: 3,
   },
   handle: {
     backgroundColor: '#8E8E8E',
@@ -140,5 +120,36 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
     flex: 1,
   },
+  otpInput: {
+    width: '95%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    height: 100,
+  },
+  borderStyleBase: {
+    width: 47,
+    height: 47,
+    borderColor: '#8E8E8E',
+    color: '#000',
+    backgroundColor: '#fff',
+  },
+  borderStyleHighLighted: {
+    backgroundColor: '#fff',
+    color: '#000',
+  },
+
+  underlineStyleBase: {
+    width: 47,
+    height: 47,
+    borderWidth: 1,
+    borderRadius: 8,
+    backgroundColor: '#fff',
+    color: '#000',
+    fontWeight: 'bold',
+  },
+  underlineStyleHighLighted: {
+    color: '#000',
+    backgroundColor: '#fff',
+  },
 });
-export default Login;
+export default OtpScreen;
