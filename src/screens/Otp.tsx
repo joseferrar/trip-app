@@ -24,32 +24,31 @@ const Login = ({navigation}: any) => {
         source={require('../assets/images/bg.png')}
         style={styles.container}>
         <View style={styles.header}>
-          <Image source={require('../assets/images/marker.png')} />
+          <Image source={require('../assets/images/otp.png')} />
           <Text style={{color: '#fff', fontSize: 32, fontWeight: 'bold'}}>
-            Login
+            OTP
           </Text>
         </View>
       </ImageBackground>
       <Modalize
-        alwaysOpen={400}
+        alwaysOpen={50}
         adjustToContentHeight={true}
         ref={modalizeRef}
         scrollViewProps={{showsVerticalScrollIndicator: false}}
         handleStyle={styles.handle}
         modalStyle={styles.modal}>
         <BottomCard contentStyle={styles.form}>
-          <Text style={styles.labal}>Enter your mobile number</Text>
-          <FormInput
-            value={phone}
-            placeholder="Phone Number"
-            onChangeText={e => setPhone(e)}
-          />
-          <Text style={styles.labal}>Enter your passoword</Text>
-          <PasswordInput
-            value={password}
-            placeholder="Password"
-            onChangeText={e => setPassword(e)}
-          />
+          <Text
+            style={{
+              color: '#000',
+              fontSize: 32,
+              fontWeight: 'bold',
+              textAlign: 'center',
+            }}>
+            Enter OTP
+          </Text>
+          <Text style={styles.subTitle}>An 4 digit OTP has been sent to</Text>
+          <Text style={styles.phone}>+91998435344</Text>
           <Button
             title="Login"
             style={styles.btn}
@@ -59,19 +58,6 @@ const Login = ({navigation}: any) => {
             <Text style={styles.footer_inner}>Create a new account ?</Text>
             <Text style={styles.footer_btn}>Sign Up</Text>
           </View>
-          <Text style={styles.less}>Or</Text>
-          <IconButton
-            title="Continue with Google"
-            icon={require('../assets/images/google.png')}
-            containerStyle={styles.google}
-          />
-          <IconButton
-            title="Continue with Google"
-            icon={require('../assets/images/facebook.png')}
-            containerStyle={styles.google}
-          />
-          <Text style={[styles.less, {marginTop: 8}]}>Or</Text>
-          <TextButton title="Continue as Guest" />
         </BottomCard>
       </Modalize>
     </GestureHandlerRootView>
@@ -95,11 +81,20 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
   },
   form: {
-    marginTop: 30,
+    marginTop: 20,
   },
-  labal: {
+  subTitle: {
+    color: '#8E8E8E',
+    textAlign: 'center',
+    fontSize: 14,
+    lineHeight: 26,
+  },
+  phone: {
     color: '#000',
-    marginLeft: 12,
+    textAlign: 'center',
+    fontWeight: '600',
+    fontSize: 16,
+    lineHeight: 26,
   },
   forgot: {
     color: '#4BD4FF',

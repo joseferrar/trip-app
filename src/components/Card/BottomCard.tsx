@@ -9,10 +9,6 @@ const BottomCard = ({children, contentStyle}: BottomCardProps) => {
   return (
     <View style={styles.bottomCard}>
       <ScrollView>
-        <Image
-          source={require('../../assets/images/Line.png')}
-          style={styles.line}
-        />
         <View style={[styles.content, contentStyle]}>{children}</View>
       </ScrollView>
     </View>
