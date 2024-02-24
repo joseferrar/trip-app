@@ -29,8 +29,7 @@ const styles = StyleSheet.create({
   btnTitle: {
     fontSize: 14,
     textAlign: 'center',
-    fontFamily: 'Poppins-Bold',
-    fontWeight: 'bold',
+    fontFamily: 'MontserratAlternates-Bold',
     color: '#8E8E8E',
     textDecorationLine: 'underline',
   },

@@ -50,9 +50,8 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
   },
   buttonText: {
-    fontFamily: 'Poppins-Bold',
+    fontFamily: 'MontserratAlternates-Ragular',
     marginRight: 'auto',
-    fontWeight: '600',
     fontSize: 16,
     color: '#000',
   },

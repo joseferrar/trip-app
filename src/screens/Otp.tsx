@@ -36,7 +36,7 @@ const OtpScreen = ({navigation}: NavigationProps) => {
         <BottomCard contentStyle={styles.form}>
           <Text style={styles.headerText}>Enter OTP</Text>
           <Text style={styles.subTitle}>An 4 digit OTP has been sent to</Text>
-          <Text style={styles.phone}>+91998435344</Text>
+          <Text style={styles.phone}>+91 998435344</Text>
 
           <OTPInputView
             pinCount={4}
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: '#000',
     fontSize: 32,
-    fontWeight: 'bold',
+    fontFamily: 'MontserratAlternates-Bold',
     textAlign: 'center',
   },
   header: {
@@ -89,14 +89,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     lineHeight: 26,
-    fontWeight: '600',
+    fontFamily: 'Raleway-Bold',
   },
   phone: {
     color: '#000',
     textAlign: 'center',
-    fontWeight: '600',
-    fontSize: 16,
+    fontFamily: 'MontserratAlternates-Bold',
     lineHeight: 26,
+    letterSpacing: 1,
   },
   footer: {
     flexDirection: 'row',

@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
   btnTitle: {
     fontSize: 18,
     textAlign: 'center',
-    fontFamily: 'Poppins-Bold',
+    fontFamily: 'MontserratAlternates-Ragular',
   },
 });

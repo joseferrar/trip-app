@@ -7,6 +7,7 @@ import {
   ViewStyle,
   NativeSyntheticEvent,
   TextInputFocusEventData,
+  KeyboardTypeOptions,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 
@@ -19,6 +20,7 @@ type FormInputProps = {
   style?: ViewStyle;
   color?: string | undefined;
   secureTextEntry?: boolean;
+  keyboardType: KeyboardTypeOptions;
 };
 
 const FormInput = ({
@@ -28,6 +30,7 @@ const FormInput = ({
   editable,
   style,
   onBlur,
+  keyboardType,
 }: FormInputProps) => {
   console.log(value?.length);
 
@@ -39,6 +42,7 @@ const FormInput = ({
         editable={editable}
         placeholderTextColor="rgb(150,150,150)"
         value={value}
+        keyboardType={keyboardType}
         onBlur={onBlur}
         onChangeText={onChangeText}
       />
@@ -74,6 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     width: '85%',
     alignSelf: 'center',
+    fontFamily: 'MontserratAlternates-Regular',
     height: 50,
   },
 });

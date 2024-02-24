@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     color: '#8E8E8E',
     marginLeft: 6,
     fontSize: 14,
-    fontFamily: 'Poppins-Bold',
+    fontFamily: 'Raleway-Bold',
     marginTop: 3,
   },
 });

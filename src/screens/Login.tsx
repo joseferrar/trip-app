@@ -26,9 +26,7 @@ const Login = ({navigation}: NavigationProps) => {
         style={styles.container}>
         <View style={styles.header}>
           <Image source={require('../assets/images/marker.png')} />
-          <Text style={{color: '#fff', fontSize: 32, fontWeight: 'bold'}}>
-            Login
-          </Text>
+          <Text style={styles.headerText}>Login</Text>
         </View>
       </ImageBackground>
       <Modalize
@@ -41,6 +39,7 @@ const Login = ({navigation}: NavigationProps) => {
         <BottomCard contentStyle={styles.form}>
           <Text style={styles.labal}>Enter your mobile number</Text>
           <FormInput
+            keyboardType="number-pad"
             value={phone}
             placeholder="Phone Number"
             onChangeText={e => setPhone(e)}
@@ -84,6 +83,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  headerText: {
+    color: '#fff',
+    fontSize: 32,
+    fontFamily: 'MontserratAlternates-Bold',
+  },
   header: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -101,13 +105,8 @@ const styles = StyleSheet.create({
   labal: {
     color: '#000',
     marginLeft: 12,
-  },
-  forgot: {
-    color: '#4BD4FF',
-    textAlign: 'right',
-    fontWeight: '600',
-    marginRight: 10,
-    marginTop: 10,
+    fontFamily: 'Raleway-Bold',
+    fontSize: 14,
   },
   btn: {
     marginTop: 16,
@@ -120,18 +119,19 @@ const styles = StyleSheet.create({
   footer_inner: {
     color: '#8E8E8E',
     fontSize: 14,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Raleway-Medium',
   },
   footer_btn: {
     color: '#4BD4FF',
     marginLeft: 6,
     fontSize: 14,
-    fontFamily: 'Poppins-Bold',
+    fontFamily: 'Raleway-Bold',
   },
   less: {
     textAlign: 'center',
     color: '#000',
     fontSize: 14,
+    fontFamily: 'Raleway-Medium',
   },
   google: {
     marginTop: 12,

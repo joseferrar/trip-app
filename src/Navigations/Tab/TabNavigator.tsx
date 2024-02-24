@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {StyleSheet, Platform, TouchableOpacity} from 'react-native';
-import CustomTabBarButton from '../components/CustomTabBarButton';
+import CustomTabBarButton from '../../components/Button/TabBarButton';
 import CustomTabBar from './CustomTab';
 import {useNavigation} from '@react-navigation/native';
 
@@ -16,9 +16,9 @@ function BottomTabNavigator() {
       screenOptions={({route}) => ({
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarInactiveTintColor: COLORS.dark,
+        tabBarInactiveTintColor: "#000",
         tabBarStyle: styles.tabBarStyle,
-        tabBarActiveTintColor: COLORS.primary,
+        tabBarActiveTintColor: "blue",
         tabBarIcon: ({color, size, focused}) => {
           let iconName;
 
@@ -51,37 +51,7 @@ function BottomTabNavigator() {
           tabBarButton: props => <CustomTabBarButton {...props} />,
         }}
       />
-      <Tab.Screen
-        name={ROUTES.NOTIFICATIONS}
-        component={Notifications}
-        options={{
-          tabBarButton: props => <CustomTabBarButton {...props} />,
-        }}
-      />
-      <Tab.Screen
-        name={ROUTES.SETTINGS_NAVIGATOR}
-        component={SettingsNavigator}
-        options={{
-          tabBarLabel: 'Settings',
-          title: 'Settings',
-          headerShown: true,
-          tabBarButton: props => (
-            <CustomTabBarButton route="settings" {...props} />
-          ),
-          headerRight: () => {
-            return (
-              <TouchableOpacity onPress={() => navigation.openDrawer()}>
-                <Icon
-                  name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'}
-                  size={30}
-                  color={COLORS.dark}
-                  style={{marginRight: 10}}
-                />
-              </TouchableOpacity>
-            );
-          },
-        }}
-      />
+
     </Tab.Navigator>
   );
 }
@@ -91,7 +61,7 @@ export default BottomTabNavigator;
 const styles = StyleSheet.create({
   tabBarStyle: {
     position: 'absolute',
-    backgroundColor: COLORS.transparent,
+    backgroundColor: "transparent",
     borderTopWidth: 0,
     bottom: 15,
     right: 10,

@@ -43,7 +43,12 @@ const Home = () => {
       </ImageBackground>
       <View style={styles.section}>
         {/* <Image source={require('../assets/images/marker.png')} /> */}
-        <Text style={{color: '#000', fontSize: 18, fontWeight: '700'}}>
+        <Text
+          style={{
+            color: '#000',
+            fontSize: 18,
+            fontFamily: 'MontserratAlternates-Bold',
+          }}>
           Categories
         </Text>
         <Text style={{color: '#4BD4FF', fontSize: 16, fontWeight: '600'}}>
