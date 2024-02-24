@@ -1,10 +1,11 @@
-import {Image, ScrollView, StyleSheet, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, View, ViewStyle} from 'react-native';
 import React from 'react';
 
 type BottomCardProps = {
   children: React.ReactNode;
+  contentStyle: ViewStyle;
 };
-const BottomCard = ({children}: BottomCardProps) => {
+const BottomCard = ({children, contentStyle}: BottomCardProps) => {
   return (
     <View style={styles.bottomCard}>
       <ScrollView>
@@ -12,7 +13,7 @@ const BottomCard = ({children}: BottomCardProps) => {
           source={require('../../assets/images/Line.png')}
           style={styles.line}
         />
-        <View style={styles.content}>{children}</View>
+        <View style={[styles.content, contentStyle]}>{children}</View>
       </ScrollView>
     </View>
   );
@@ -33,6 +34,6 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
   },
   content: {
-    padding: 20,
+    margin: 12,
   },
 });
