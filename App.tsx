@@ -18,7 +18,7 @@ function App() {
     <>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Login"
             component={Login}
             options={{headerShown: false}}
@@ -27,7 +27,7 @@ function App() {
             name="Otp"
             component={Otp}
             options={{headerShown: false}}
-          />
+          /> */}
           <Stack.Screen
             name="Home"
             component={Home}
