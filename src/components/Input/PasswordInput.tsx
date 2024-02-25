@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     width: '85%',
     alignSelf: 'center',
-    fontFamily: 'MontserratAlternates-Regular',
+    fontFamily: 'Raleway-Medium',
     height: 50,
   },
 });

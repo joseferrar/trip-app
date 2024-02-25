@@ -9,7 +9,8 @@ import ResendText from '../components/Typography/ResendText';
 import {useTimer} from '../hooks/useTimer';
 import {NavigationProps} from '../types/navigation';
 
-const OtpScreen = ({navigation}: NavigationProps) => {
+const OtpScreen = ({navigation, route}: NavigationProps) => {
+  const {phoneNumber} = route.params;
   const {timer, startTimer, resetTimer} = useTimer({});
   const modalizeRef = useRef<Modalize>(null);
   const [sms, setSms] = useState('');
@@ -34,7 +35,7 @@ const OtpScreen = ({navigation}: NavigationProps) => {
         <BottomCard contentStyle={styles.form}>
           <Text style={styles.headerText}>Enter OTP</Text>
           <Text style={styles.subTitle}>An 4 digit OTP has been sent to</Text>
-          <Text style={styles.phone}>+91 998435344</Text>
+          <Text style={styles.phone}>+91 {phoneNumber}</Text>
 
           <OTPInputView
             pinCount={4}
@@ -55,7 +56,9 @@ const OtpScreen = ({navigation}: NavigationProps) => {
             onPress={() => navigation.navigate('Dashboard')}
           />
           <View style={styles.footer}>
-            <Text style={styles.subTitle} onPress={resetTimer}>
+            <Text
+              style={timer === 0 ? styles.primaryTitle : styles.subTitle}
+              onPress={resetTimer}>
               Resent OTP
             </Text>
             <ResendText startTimer={startTimer} counter={timer} />
@@ -92,6 +95,13 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: '#8E8E8E',
+    textAlign: 'center',
+    fontSize: 14,
+    lineHeight: 26,
+    fontFamily: 'Raleway-Bold',
+  },
+  primaryTitle: {
+    color: '#4BD4FF',
     textAlign: 'center',
     fontSize: 14,
     lineHeight: 26,

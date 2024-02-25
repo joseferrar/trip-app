@@ -8,8 +8,9 @@ import {
   NativeSyntheticEvent,
   TextInputFocusEventData,
   KeyboardTypeOptions,
+  Text,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 type FormInputProps = {
   value: string;
@@ -36,6 +37,9 @@ const FormInput = ({
 
   return (
     <View style={[styles.input_container, style]}>
+      <TouchableOpacity activeOpacity={0.5}>
+        <Text style={styles.labal}>+91</Text>
+      </TouchableOpacity>
       <TextInput
         style={styles.input}
         placeholder={placeholder}
@@ -50,7 +54,7 @@ const FormInput = ({
         <TouchableOpacity activeOpacity={0.5}>
           <Image
             source={require('../../assets/images/tick.png')}
-            style={{width: 16, height: 16}}
+            style={{width: 16, height: 16, marginRight: 10}}
           />
         </TouchableOpacity>
       )}
@@ -72,13 +76,20 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderWidth: 1.5,
     borderColor: '#E2E2E2',
+    paddingLeft: 18,
+    paddingRight: 18,
   },
   input: {
     color: '#000',
     fontSize: 14,
     width: '85%',
     alignSelf: 'center',
-    fontFamily: 'MontserratAlternates-Regular',
+    fontFamily: 'MontserratAlternates-Medium',
     height: 50,
+  },
+  labal: {
+    color: '#000',
+    fontFamily: 'MontserratAlternates-Bold',
+    fontSize: 14,
   },
 });

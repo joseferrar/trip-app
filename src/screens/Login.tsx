@@ -53,7 +53,7 @@ const Login = ({navigation}: NavigationProps) => {
           <Button
             title="Login"
             style={styles.btn}
-            onPress={() => navigation.navigate('Otp')}
+            onPress={() => navigation.navigate('Otp', {phoneNumber: phone})}
           />
           <View style={styles.footer}>
             <Text style={styles.footer_inner}>Create a new account ?</Text>
@@ -92,12 +92,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 50,
-  },
-  bottomCard: {
-    flex: 1,
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 50,
-    borderTopRightRadius: 50,
   },
   form: {
     marginTop: 30,
@@ -145,6 +139,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
     flex: 1,
+    margin: 0,
   },
 });
 export default Login;

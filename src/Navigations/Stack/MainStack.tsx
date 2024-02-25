@@ -6,7 +6,7 @@ import TabNavigation from '../../Navigations/Tab/TabNavigator';
 
 type RootStackParamList = {
   Login: undefined;
-  Otp: undefined;
+  Otp: {phoneNumber: string | undefined};
   Dashboard: undefined;
 };
 

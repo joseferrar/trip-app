@@ -1,4 +1,4 @@
-import {Image, ScrollView, StyleSheet, View, ViewStyle} from 'react-native';
+import {ScrollView, StyleSheet, View, ViewStyle} from 'react-native';
 import React from 'react';
 
 type BottomCardProps = {
