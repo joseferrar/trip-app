@@ -30,7 +30,7 @@ const Login = ({navigation}: NavigationProps) => {
         </View>
       </ImageBackground>
       <Modalize
-        alwaysOpen={400}
+        alwaysOpen={300}
         adjustToContentHeight={true}
         ref={modalizeRef}
         scrollViewProps={{showsVerticalScrollIndicator: false}}

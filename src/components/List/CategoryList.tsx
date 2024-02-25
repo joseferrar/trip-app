@@ -6,7 +6,7 @@ import {categories} from '../../data/category';
 const CategoryList = () => {
   return (
     <GestureHandlerRootView>
-      <ScrollView horizontal={true}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <View style={styles.container}>
           {categories.map((category, index) => (
             <View style={styles.view} key={index.toString()}>

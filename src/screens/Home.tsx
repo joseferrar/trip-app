@@ -11,8 +11,9 @@ import React from 'react';
 import SearchInput from '../components/Input/SearchInput';
 import CategoryList from '../components/List/CategoryList';
 import PlaceList from '../components/List/PlaceList';
+import {NavigationProps} from '../types/navigation';
 
-const Home = ({navigation}) => {
+const Home = ({navigation}: NavigationProps) => {
   return (
     <KeyboardAvoidingView
       behavior="padding"
@@ -44,7 +45,7 @@ const Home = ({navigation}) => {
         <Text style={styles.headerText}>Most Visited</Text>
         <Text style={styles.linkText}>See All</Text>
       </View>
-      <PlaceList navigation={navigation}/>
+      <PlaceList navigation={navigation} />
     </KeyboardAvoidingView>
   );
 };

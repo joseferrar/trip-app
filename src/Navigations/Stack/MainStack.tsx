@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function MainStack() {
   return (
     <Stack.Navigator>
-      {/* <Stack.Screen
+      <Stack.Screen
             name="Login"
             component={Login}
             options={{headerShown: false}}
@@ -26,7 +26,7 @@ function MainStack() {
             name="Otp"
             component={Otp}
             options={{headerShown: false}}
-          /> */}
+          />
       <Stack.Screen
         name="Dashboard"
         component={TabNavigation}

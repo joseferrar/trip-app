@@ -9,7 +9,7 @@ import Home from '../../screens/Home';
 
 type RootStackParamList = {
   Dashboard: undefined;
-  Details: Details;
+  Details: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

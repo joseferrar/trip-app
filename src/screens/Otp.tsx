@@ -21,9 +21,7 @@ const OtpScreen = ({navigation}: NavigationProps) => {
         style={styles.container}>
         <View style={styles.header}>
           <Image source={require('../assets/images/otp.png')} />
-          <Text style={{color: '#fff', fontSize: 32, fontWeight: 'bold'}}>
-            OTP
-          </Text>
+          <Text style={styles.imgText}>OTP</Text>
         </View>
       </ImageBackground>
       <Modalize
@@ -72,6 +70,11 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
+  },
+  imgText: {
+    color: '#fff',
+    fontSize: 32,
+    fontFamily: 'MontserratAlternates-Bold',
   },
   headerText: {
     color: '#000',
