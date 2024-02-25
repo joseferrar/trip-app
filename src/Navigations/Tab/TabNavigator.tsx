@@ -20,8 +20,6 @@ function TabNavigation() {
         tabBarStyle: {
           position: 'absolute',
           backgroundColor: '#fff',
-          borderColor: '#fff',
-          borderWidth: 0,
           elevation: 4,
           height: 65,
           borderRadius: 0,
@@ -37,8 +35,8 @@ function TabNavigation() {
           headerShown: false,
           tabBarLabel: 'Home',
           tabBarLabelStyle: {
-            marginBottom: 6,
-            fontFamily: 'MontserratAlternates-Medium',
+            marginBottom: 4,
+            fontFamily: 'Raleway-Medium',
             fontSize: 12,
           },
         }}
@@ -50,9 +48,8 @@ function TabNavigation() {
           headerShown: false,
           tabBarLabel: 'Saved',
           tabBarLabelStyle: {
-            marginRight: 2,
             marginBottom: 6,
-            fontFamily: 'MontserratAlternates-Medium',
+            fontFamily: 'Raleway-Medium',
             fontSize: 12,
           },
           tabBarIconStyle: {marginRight: 2},
@@ -74,9 +71,8 @@ function TabNavigation() {
           tabBarLabel: 'Notification',
           tabBarLabelStyle: {
             marginBottom: 6,
-            fontFamily: 'MontserratAlternates-Medium',
+            fontFamily: 'Raleway-Medium',
             fontSize: 12,
-            marginLeft: -1,
           },
           tabBarIconStyle: {marginLeft: 2, marginTop: 6},
         }}
@@ -89,7 +85,7 @@ function TabNavigation() {
           tabBarLabel: 'Chat',
           tabBarLabelStyle: {
             marginBottom: 6,
-            fontFamily: 'MontserratAlternates-Medium',
+            fontFamily: 'Raleway-Medium',
             fontSize: 12,
           },
         }}

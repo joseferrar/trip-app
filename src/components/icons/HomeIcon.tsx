@@ -6,7 +6,7 @@ const HomeIcon = ({color, width, height, focusable}: SvgProps) => {
     <Svg
       width={width}
       height={height}
-      style={{marginLeft: -6}}
+      style={{marginLeft: -8}}
       viewBox="0 0 24 36"
       fill="none"
       x="http://www.w3.org/2000/svg">

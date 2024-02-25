@@ -10,8 +10,8 @@ const TabActive = (route: any, focused: any) => {
     return (
       <HomeIcon
         color={focused ? '#4BD4FF' : '#000'}
-        width={35}
-        height={35}
+        width={40}
+        height={40}
         focusable={focused}
       />
     );
@@ -19,7 +19,7 @@ const TabActive = (route: any, focused: any) => {
     return (
       <HeartIcon
         color={focused ? '#4BD4FF' : '#000'}
-        width={303}
+        width={35}
         height={30}
         focusable={focused}
       />

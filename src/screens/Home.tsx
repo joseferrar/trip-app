@@ -7,28 +7,21 @@ import {
   KeyboardAvoidingView,
   Keyboard,
 } from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import SearchInput from '../components/Input/SearchInput';
 import CategoryList from '../components/List/CategoryList';
+import PlaceList from '../components/List/PlaceList';
 
 const Home = () => {
-  const [search, setSearch] = useState('');
   return (
     <KeyboardAvoidingView
       behavior="padding"
-      style={{flex: 1}}
+      style={{flex: 1, backgroundColor: '#fff'}}
       onTouchStart={Keyboard.dismiss}>
       <ImageBackground
         source={require('../assets/images/header.png')}
         style={styles.container}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop: 16,
-            marginLeft: 12,
-            marginRight: 12,
-          }}>
+        <View style={styles.hearder}>
           <Image
             source={require('../assets/images/menu.png')}
             style={{marginTop: 16}}
@@ -46,12 +39,12 @@ const Home = () => {
         <Text style={styles.linkText}>See All</Text>
       </View>
       <CategoryList />
-      
+
       <View style={styles.section}>
-        <Text style={styles.headerText}>Categories</Text>
+        <Text style={styles.headerText}>Most Visited</Text>
         <Text style={styles.linkText}>See All</Text>
       </View>
-      <CategoryList />
+      <PlaceList />
     </KeyboardAvoidingView>
   );
 };
@@ -64,6 +57,13 @@ const styles = StyleSheet.create({
     height: 230,
     elevation: 4,
   },
+  hearder: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 16,
+    marginLeft: 12,
+    marginRight: 12,
+  },
   section: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: '#000',
     fontSize: 18,
-    fontFamily: 'MontserratAlternates-Bold',
+    fontFamily: 'Raleway-Bold',
   },
   linkText: {
     color: '#4BD4FF',
