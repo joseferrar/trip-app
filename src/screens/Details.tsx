@@ -8,20 +8,23 @@ import {
   Keyboard,
 } from 'react-native';
 import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
-import React from 'react';
-import SearchInput from '../components/Input/SearchInput';
+import React, {useState} from 'react';
 import {NavigationProps} from '../types/navigation';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Button from '../components/Button/Button';
+import ImageList from '../components/List/ImageList';
 
-const Details = ({navigation}: NavigationProps) => {
+const Details = ({navigation, route}: NavigationProps) => {
+  const {place} = route.params;
+  const [count, setCount] = useState(0);
+  console.log('count: ' + count);
   return (
     <KeyboardAvoidingView
       behavior="padding"
       style={{flex: 1, backgroundColor: '#fff'}}
       onTouchStart={Keyboard.dismiss}>
       <ImageBackground
-        source={require('../assets/images/place.png')}
+        source={{uri: place.Urls[count]}}
         style={styles.container}>
         <GestureHandlerRootView style={styles.hearder}>
           <TouchableOpacity
@@ -32,13 +35,16 @@ const Details = ({navigation}: NavigationProps) => {
           </TouchableOpacity>
           <Text style={styles.headerText}>Place Details</Text>
         </GestureHandlerRootView>
-        <SearchInput placeholder="Search any places" />
+
+        <ImageList imgUrl={place.Urls} count={count} setCount={setCount} />
+
+        {/* <CategoryList /> */}
       </ImageBackground>
       <View style={styles.section}>
-        <Text style={styles.city}>Moldava city</Text>
+        <Text style={styles.city}>{place.city}</Text>
         <Text style={styles.linkText}>$ 89,100</Text>
         <Text style={styles.state}>
-          <Image source={require('../assets/images/mark.png')} /> Asia
+          <Image source={require('../assets/images/mark.png')} /> {place.state}
         </Text>
       </View>
 
@@ -57,7 +63,7 @@ const Details = ({navigation}: NavigationProps) => {
               style={styles.heartIcon}
             />
             <Text style={styles.rate}>
-              4.5 <Text style={styles.review}>(98k Reviews)</Text>
+              {place.rate} <Text style={styles.review}>(98k Reviews)</Text>
             </Text>
           </View>
 
@@ -80,9 +86,9 @@ const Details = ({navigation}: NavigationProps) => {
               amet{' '}
             </Text>
             <Text style={styles.about}>Facilities</Text>
-            <Text style={styles.grayText}>{`\u25CF  Free Timing`}</Text>
-            <Text style={styles.grayText}>{`\u25CF  Swimming pool`}</Text>
-            <Text style={styles.grayText}>{`\u25CF  Video Games`}</Text>
+            <Text style={styles.grayText}>{'\u25CF  Free Timing'}</Text>
+            <Text style={styles.grayText}>{'\u25CF  Swimming pool'}</Text>
+            <Text style={styles.grayText}>{'\u25CF  Video Games'}</Text>
           </View>
         </ScrollView>
         <Button
@@ -127,6 +133,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Raleway-Bold',
     width: '100%',
+    textShadowColor: '#000',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
   },
   city: {
     color: '#000',
@@ -170,7 +179,7 @@ const styles = StyleSheet.create({
     marginLeft: 22,
     marginRight: 22,
     height: 525,
-    marginBottom: 34,
+    marginBottom: 20,
   },
   grayText: {
     color: '#8E8E8E',
@@ -205,13 +214,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: -12,
     marginBottom: 20,
-    height: 60,
   },
   about: {
     color: '#000',
     fontSize: 16,
     fontFamily: 'Raleway-Bold',
-    marginTop: 12,
   },
   bookBtn: {
     position: 'absolute',
@@ -225,5 +232,11 @@ const styles = StyleSheet.create({
   btnText: {
     fontFamily: 'Raleway-Medium',
     fontSize: 16,
+  },
+  back: {
+    marginRight: 12,
+    borderWidth: 3,
+    borderColor: '#fff',
+    borderRadius: 5,
   },
 });

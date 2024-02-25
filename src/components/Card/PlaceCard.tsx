@@ -22,11 +22,11 @@ const PlaceCard = ({item, index, navigation}: PlaceTypeIn) => {
       style={styles.view}
       key={index}
       activeOpacity={0.6}
-      onPress={() => navigation.navigate('Details')}>
+      onPress={() => navigation.navigate('Details', {place: item})}>
       <ImageBackground
         borderRadius={12}
         source={{
-          uri: item.image,
+          uri: item.Urls[0],
         }}
         style={styles.img_bg}>
         <View style={styles.card}>
@@ -81,6 +81,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: -3,
     marginLeft: 6,
+    textShadowColor: '#000',
+    textShadowOffset: {width: -1, height: 0},
+    textShadowRadius: 10,
   },
   heart: {
     padding: 8,
@@ -95,6 +98,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Raleway-Bold',
     marginBottom: 3,
+    textShadowColor: '#000',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
   },
   body: {
     color: '#fff',
@@ -102,5 +108,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Raleway-Medium',
     marginTop: -3,
     marginLeft: 6,
+    textShadowColor: '#000',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
   },
 });

@@ -1,14 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
 const Add = () => {
   return (
-    <View>
-      <Text>Add</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Location Screen</Text>
     </View>
-  )
-}
+  );
+};
 
-export default Add
+export default Add;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 20,
+    color: '#000',
+  },
+});
