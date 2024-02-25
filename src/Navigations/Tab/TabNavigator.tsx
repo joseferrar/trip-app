@@ -1,71 +1,101 @@
-import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {StyleSheet, Platform, TouchableOpacity} from 'react-native';
-import CustomTabBarButton from '../../components/Button/TabBarButton';
-import CustomTabBar from './CustomTab';
-import {useNavigation} from '@react-navigation/native';
+import React from 'react';
+import TabActive from './TabActive';
+import Home from '../../screens/Home';
+import Notification from '../../screens/Notification';
+import Chat from '../../screens/Chat';
+import Add from '../../screens/Add';
+import Saved from '../../screens/Saved';
 
 const Tab = createBottomTabNavigator();
 
-function BottomTabNavigator() {
-  const navigation = useNavigation();
-
+function TabNavigation() {
   return (
     <Tab.Navigator
-      tabBar={props => <CustomTabBar {...props} />}
-      screenOptions={({route}) => ({
-        headerShown: false,
-        tabBarShowLabel: false,
-        tabBarInactiveTintColor: "#000",
-        tabBarStyle: styles.tabBarStyle,
-        tabBarActiveTintColor: "blue",
-        tabBarIcon: ({color, size, focused}) => {
-          let iconName;
-
-          if (route.name === ROUTES.HOME_TAB) {
-            iconName = focused ? 'ios-home-sharp' : 'ios-home-outline';
-          } else if (route.name === ROUTES.SETTINGS_NAVIGATOR) {
-            iconName = focused ? 'settings' : 'settings-outline';
-          } else if (route.name === ROUTES.WALLET) {
-            iconName = focused ? 'wallet' : 'wallet-outline';
-          } else if (route.name === ROUTES.NOTIFICATIONS) {
-            iconName = focused
-              ? 'md-notifications-sharp'
-              : 'md-notifications-outline';
-          }
-
-          return <Icon name={iconName} size={22} color={color} />;
+      screenOptions={({route}): any => ({
+        tabBarHideOnKeyboard: true,
+        tabBarIcon: ({focused}: any) => {
+          return TabActive(route, focused);
+        },
+        tabBarStyle: {
+          position: 'absolute',
+          backgroundColor: '#fff',
+          borderColor: '#fff',
+          borderWidth: 0,
+          elevation: 4,
+          height: 65,
+          borderRadius: 0,
+          bottom: 0,
+          borderTopRightRadius: 30,
+          borderTopLeftRadius: 30,
         },
       })}>
       <Tab.Screen
-        name={ROUTES.HOME_TAB}
+        name="Home"
         component={Home}
         options={{
-          tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
+          headerShown: false,
+          tabBarLabel: 'Home',
+          tabBarLabelStyle: {
+            marginBottom: 6,
+            fontFamily: 'MontserratAlternates-Medium',
+            fontSize: 12,
+          },
         }}
       />
       <Tab.Screen
-        name={ROUTES.WALLET}
-        component={Wallet}
+        name="Saved"
+        component={Saved}
         options={{
-          tabBarButton: props => <CustomTabBarButton {...props} />,
+          headerShown: false,
+          tabBarLabel: 'Saved',
+          tabBarLabelStyle: {
+            marginRight: 2,
+            marginBottom: 6,
+            fontFamily: 'MontserratAlternates-Medium',
+            fontSize: 12,
+          },
+          tabBarIconStyle: {marginRight: 2},
         }}
       />
-
+      <Tab.Screen
+        name="Add"
+        component={Add}
+        options={{
+          headerShown: false,
+          tabBarLabel: '',
+        }}
+      />
+      <Tab.Screen
+        name="Notification"
+        component={Notification}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Notification',
+          tabBarLabelStyle: {
+            marginBottom: 6,
+            fontFamily: 'MontserratAlternates-Medium',
+            fontSize: 12,
+            marginLeft: -1,
+          },
+          tabBarIconStyle: {marginLeft: 2, marginTop: 6},
+        }}
+      />
+      <Tab.Screen
+        name="Chat"
+        component={Chat}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Chat',
+          tabBarLabelStyle: {
+            marginBottom: 6,
+            fontFamily: 'MontserratAlternates-Medium',
+            fontSize: 12,
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 }
 
-export default BottomTabNavigator;
-
-const styles = StyleSheet.create({
-  tabBarStyle: {
-    position: 'absolute',
-    backgroundColor: "transparent",
-    borderTopWidth: 0,
-    bottom: 15,
-    right: 10,
-    left: 10,
-    height: 92,
-  },
-});
+export default TabNavigation;

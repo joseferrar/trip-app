@@ -42,18 +42,14 @@ const Home = () => {
         <SearchInput placeholder="Search any places" />
       </ImageBackground>
       <View style={styles.section}>
-        {/* <Image source={require('../assets/images/marker.png')} /> */}
-        <Text
-          style={{
-            color: '#000',
-            fontSize: 18,
-            fontFamily: 'MontserratAlternates-Bold',
-          }}>
-          Categories
-        </Text>
-        <Text style={{color: '#4BD4FF', fontSize: 16, fontWeight: '600'}}>
-          See All
-        </Text>
+        <Text style={styles.headerText}>Categories</Text>
+        <Text style={styles.linkText}>See All</Text>
+      </View>
+      <CategoryList />
+      
+      <View style={styles.section}>
+        <Text style={styles.headerText}>Categories</Text>
+        <Text style={styles.linkText}>See All</Text>
       </View>
       <CategoryList />
     </KeyboardAvoidingView>
@@ -73,5 +69,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: 20,
     marginRight: 20,
+  },
+  headerText: {
+    color: '#000',
+    fontSize: 18,
+    fontFamily: 'MontserratAlternates-Bold',
+  },
+  linkText: {
+    color: '#4BD4FF',
+    fontSize: 16,
+    fontFamily: 'Raleway-Medium',
   },
 });

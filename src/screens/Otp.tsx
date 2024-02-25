@@ -52,7 +52,10 @@ const OtpScreen = ({navigation}: NavigationProps) => {
               console.log(`Code is ${code}, you are good to go!`);
             }}
           />
-          <Button title="Verify" onPress={() => navigation.navigate('Home')} />
+          <Button
+            title="Verify"
+            onPress={() => navigation.navigate('Dashboard')}
+          />
           <View style={styles.footer}>
             <Text style={styles.subTitle} onPress={resetTimer}>
               Resent OTP

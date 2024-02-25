@@ -3,12 +3,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './src/screens/Login';
 import Otp from './src/screens/Otp';
-import Home from './src/screens/Home';
+import TabNavigation from './src/Navigations/Tab/TabNavigator';
 
 type RootStackParamList = {
   Login: undefined;
   Otp: undefined;
-  Home: undefined;
+  Dashboard: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -18,7 +18,7 @@ function App() {
     <>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Login"
             component={Login}
             options={{headerShown: false}}
@@ -27,10 +27,10 @@ function App() {
             name="Otp"
             component={Otp}
             options={{headerShown: false}}
-          />
+          /> */}
           <Stack.Screen
-            name="Home"
-            component={Home}
+            name="Dashboard"
+            component={TabNavigation}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
