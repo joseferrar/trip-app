@@ -5,8 +5,8 @@ import Home from '../../screens/Home';
 import {PlaceType} from '../../data/place';
 
 type RootStackParamList = {
-  Dashboard: undefined;
-  Details: {place: PlaceType};
+  Dashboard: {place: PlaceType};
+  Details: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

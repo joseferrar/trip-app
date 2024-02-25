@@ -17,7 +17,7 @@ import ImageList from '../components/List/ImageList';
 const Details = ({navigation, route}: NavigationProps) => {
   const {place} = route.params;
   const [count, setCount] = useState(0);
-  console.log('count: ' + count);
+
   return (
     <KeyboardAvoidingView
       behavior="padding"
@@ -50,7 +50,9 @@ const Details = ({navigation, route}: NavigationProps) => {
 
       {/* star */}
       <GestureHandlerRootView>
-        <ScrollView style={styles.detailContainer}>
+        <ScrollView
+          style={styles.detailContainer}
+          showsVerticalScrollIndicator={false}>
           <View style={styles.packageView}>
             <Image source={require('../assets/images/sun.png')} />
             <Text style={styles.packageText}>Package</Text>

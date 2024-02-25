@@ -17,7 +17,7 @@ const Home = ({navigation}: NavigationProps) => {
   return (
     <KeyboardAvoidingView
       behavior="padding"
-      style={{flex: 1, backgroundColor: '#fff'}}
+      style={{flex: 1, backgroundColor: '#0000'}}
       onTouchStart={Keyboard.dismiss}>
       <ImageBackground
         source={require('../assets/images/header.png')}

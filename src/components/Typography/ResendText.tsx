@@ -3,7 +3,6 @@ import React from 'react';
 
 const ResendText = ({counter = 10}: any) => {
   const disabled = counter > 0;
-  console.log('counter', counter);
 
   return (
     <View>
