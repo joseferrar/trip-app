@@ -33,8 +33,6 @@ const FormInput = ({
   onBlur,
   keyboardType,
 }: FormInputProps) => {
-  console.log(value?.length);
-
   return (
     <View style={[styles.input_container, style]}>
       <TouchableOpacity activeOpacity={0.5}>

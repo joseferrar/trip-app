@@ -47,9 +47,7 @@ const OtpScreen = ({navigation, route}: NavigationProps) => {
             codeInputFieldStyle={styles.underlineStyleBase}
             codeInputHighlightStyle={styles.underlineStyleHighLighted}
             onCodeChanged={code => setSms(code)}
-            onCodeFilled={code => {
-              console.log(`Code is ${code}, you are good to go!`);
-            }}
+            onCodeFilled={code => setSms(code)}
           />
           <Button
             title="Verify"
