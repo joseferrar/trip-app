@@ -1,15 +1,28 @@
-import {StyleSheet, Text, View, ImageBackground, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import {PlaceType} from '../../data/place';
+import {NavigationProps} from '../../types/navigation';
 
 type PlaceTypeIn = {
   item: PlaceType;
   index?: number;
+  navigation: NavigationProps;
 };
 
-const PlaceCard = ({item, index}: PlaceTypeIn) => {
+const PlaceCard = ({item, index, navigation}: PlaceTypeIn) => {
   return (
-    <View style={styles.view} key={index}>
+    <TouchableOpacity
+      style={styles.view}
+      key={index}
+      activeOpacity={0.6}
+      onPress={() => navigation.navigate('Details')}>
       <ImageBackground
         borderRadius={12}
         source={{
@@ -34,7 +47,7 @@ const PlaceCard = ({item, index}: PlaceTypeIn) => {
           </View>
         </View>
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   );
 };
 

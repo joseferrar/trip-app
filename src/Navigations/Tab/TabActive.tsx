@@ -4,8 +4,11 @@ import {Image} from 'react-native';
 import HomeIcon from '../../components/icons/HomeIcon';
 import ChatIcon from '../../components/icons/ChatIcon';
 import HeartIcon from '../../components/icons/HeartIcon';
+import {useKeyboard} from '../../hooks/useKeyboard';
 
 const TabActive = (route: any, focused: any) => {
+  const {isKeyboardVisible} = useKeyboard();
+
   if (route.name === 'Home') {
     return (
       <HomeIcon
@@ -40,7 +43,7 @@ const TabActive = (route: any, focused: any) => {
         width={30}
         height={30}
         style={{
-          marginTop: -40,
+          marginTop: isKeyboardVisible ? 40 : -40,
           marginRight: 12,
         }}
       />

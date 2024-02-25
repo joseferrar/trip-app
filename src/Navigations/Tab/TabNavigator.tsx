@@ -1,11 +1,11 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import TabActive from './TabActive';
-import Home from '../../screens/Home';
 import Notification from '../../screens/Notification';
 import Chat from '../../screens/Chat';
 import Add from '../../screens/Add';
 import Saved from '../../screens/Saved';
+import HomeStack from '../Stack/HomeStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,7 +30,7 @@ function TabNavigation() {
       })}>
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeStack}
         options={{
           headerShown: false,
           tabBarLabel: 'Home',

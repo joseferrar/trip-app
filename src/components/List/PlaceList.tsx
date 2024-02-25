@@ -4,13 +4,13 @@ import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
 import PlaceCard from '../Card/PlaceCard';
 import {places} from '../../data/place';
 
-const PlaceList = () => {
+const PlaceList = ({navigation}) => {
   return (
     <GestureHandlerRootView>
       <ScrollView horizontal={true}>
         <View style={styles.container}>
           {places.map((place, index) => (
-            <PlaceCard item={place} key={index} />
+            <PlaceCard item={place} key={index} navigation={navigation}/>
           ))}
         </View>
       </ScrollView>

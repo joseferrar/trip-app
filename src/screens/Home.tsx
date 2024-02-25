@@ -12,7 +12,7 @@ import SearchInput from '../components/Input/SearchInput';
 import CategoryList from '../components/List/CategoryList';
 import PlaceList from '../components/List/PlaceList';
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <KeyboardAvoidingView
       behavior="padding"
@@ -44,7 +44,7 @@ const Home = () => {
         <Text style={styles.headerText}>Most Visited</Text>
         <Text style={styles.linkText}>See All</Text>
       </View>
-      <PlaceList />
+      <PlaceList navigation={navigation}/>
     </KeyboardAvoidingView>
   );
 };
